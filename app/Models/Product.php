@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
@@ -12,11 +12,19 @@ class Product extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'price' => 'decimal:2',
+    ];
 
-    public function category(): BelongsTo
+
+    public function categories(): BelongsToMany
     {
-        return $this->belongsTo(Category::class);
-    }
+        return $this->belongsToMany(
+                Category::class,
+                'categories_products',
+                'product_id',
+                'category_id');
+        }
 
 }
 

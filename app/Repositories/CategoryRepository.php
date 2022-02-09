@@ -26,6 +26,12 @@ class CategoryRepository
         return Category::query()->create($attributes);
     }
 
+    /**
+     * findById
+     *
+     * @param  int $id
+     * @return Category
+     */
     public function findById(int $id): ?Category
     {
         return Category::query()
@@ -33,6 +39,12 @@ class CategoryRepository
             ->first();
     }
 
+    /**
+     * findByName
+     *
+     * @param  string $name
+     * @return Category
+     */
     public function findByName(string $name): ?Category
     {
         return Category::query()

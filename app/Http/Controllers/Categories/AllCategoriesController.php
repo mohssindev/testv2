@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Categories;
 use App\Services\CategoryService;
 use App\Http\Controllers\Controller;
 
-class AllCategories extends Controller
+class AllCategoriesController extends Controller
 {
     private $categoryService;
 
